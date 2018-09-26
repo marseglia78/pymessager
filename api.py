@@ -12,21 +12,12 @@ __author__ = 'enginebai'
 app = Flask(__name__)
 
 
-#@app.route(API_ROOT + FB_WEBHOOK, methods=["GET"])
-'''
-@app.route("/", methods=['GET', 'POST'])
+#
+@app.route("/", methods=['GET'])
 def receive_message_check():
-    if request.method == 'GET':
-        token_sent = request.args.get("hub.verify_token")
-        #return verify_fb_token(token_sent)
-        return "your app is succesfully deployed"
-
-    else:
-        data = request.json
-        sender_id = data['entry'][0]['messaging'][0]['sender']['id']
-        send_message(sender_id, "your app is succesfully deployed")
-    return "Message Processed"
-'''
+    token_sent = request.args.get("hub.verify_token")
+    #return verify_fb_token(token_sent)
+    return "your app is succesfully deployed"
 
 ##We will receive messages that Facebook sends our bot at this endpoint
 
